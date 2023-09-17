@@ -1,0 +1,19 @@
+Найденные баги:
+
+1 баг:
+Наименование: Функция capitilize уменьшает заглавные буквы, начиная со 2 символа
+Шаги:
+1. Вставить код функции: 
+    def capitilize(self, string: str) -> str:
+        return string.capitalize()
+2. Вставить код теста:
+@pytest.mark.parametrize('string, String', [('ПРИВЕТ КАК ДЕЛА', 'ПРИВЕТ КАК ДЕЛА')])
+def test_cap(string, String):
+    string_utils = StringUtils()
+    res = string_utils.capitilize(string)
+    assert res == String
+
+ОР: После обработки функцией capitilize String == 'ПРИВЕТ КАК ДЕЛА'
+ФР: После обработки функцией capitilize String == 'Привет как дела'
+
+S5, P3
